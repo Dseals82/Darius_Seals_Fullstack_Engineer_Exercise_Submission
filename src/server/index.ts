@@ -19,9 +19,11 @@ const typeDefs = gql`
         slug: String
     }
 
+
     type Query {
         states(name: String): [State]
     }
+    
 `
 
 const resolvers = {
@@ -37,6 +39,7 @@ const resolvers = {
                     state.name.toLowerCase().startsWith(name.toLowerCase())
                 )
             }
+            console.log('in ApolloServer', data)
             return data.results
         },
     },
