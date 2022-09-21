@@ -19,7 +19,7 @@ afterEach(() => {
   container = null;
 });
 
-it('should render <InterstateTrade/> successfully', () => {
+it('should render <interstateTrade/> successfully', () => {
     render(<InterstateTrade /> );
     const labelForSearchInput = screen.getByTestId('labelForSearchInput');
     expect(labelForSearchInput).toBeTruthy();
