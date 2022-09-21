@@ -88,6 +88,7 @@ const InterstateTrade = () => {
             const resp = await fetch(`https://datausa.io/api/data?Origin%20State=${stateId}&measure=Millions%20Of%20Dollars,Thousands%20Of%20Tons&drilldowns=Destination%20State&year=latest`);
             const data = await resp.json();
             setInterstate(data.data);
+            console.log(data.data)
         }
         if(stateFound){
             fetchStates();
@@ -103,14 +104,15 @@ const InterstateTrade = () => {
     return (
         <div>
             <div>
-                <label htmlFor="state">Search for a State</label>
+                <label data-testid='labelForSearchInput' htmlFor="state">Search for a State</label>
                 <input
                     value={nameFilter}
                     onChange={(evt) => search(evt.target.value)}
                     name="state"
                     type="text"
+                    data-testid='searchInput'
                 />
-                <button onClick={clearFilter}>Clear Search</button>
+                <button data-testid='button' onClick={clearFilter}>Clear Search</button>
                 
             </div>
             <DataTable
